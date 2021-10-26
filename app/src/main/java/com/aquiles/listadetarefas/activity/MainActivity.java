@@ -7,6 +7,7 @@ import com.aquiles.listadetarefas.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.util.Log;
 import android.view.View;
 
 import androidx.navigation.ui.AppBarConfiguration;
@@ -16,8 +17,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.aquiles.listadetarefas.adapter.TarefaAdapter;
 import com.aquiles.listadetarefas.databinding.ActivityMainBinding;
+import com.aquiles.listadetarefas.helper.RecyclerItemClickListener;
 import com.aquiles.listadetarefas.model.Tarefa;
 
+import android.widget.AdapterView;
 import android.widget.LinearLayout;
 
 import java.util.ArrayList;
@@ -41,6 +44,30 @@ public class MainActivity extends AppCompatActivity {
 
         // confifurar recycler
         listaDeTarefas = findViewById(R.id.listaDeTarefas);
+
+        // adicionar evento de clique
+        listaDeTarefas.addOnItemTouchListener(
+                new RecyclerItemClickListener(
+                        getApplicationContext(),
+                        listaDeTarefas,
+                        new RecyclerItemClickListener.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(View view, int position) {
+                                Log.i("clique", "onItemClick");
+                            }
+
+                            @Override
+                            public void onLongItemClick(View view, int position) {
+                                Log.i("clique", "onLongItemClick");
+                            }
+
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                            }
+                        }
+                )
+        );
 
         binding.fab.setOnClickListener(new View.OnClickListener() {
             @Override
