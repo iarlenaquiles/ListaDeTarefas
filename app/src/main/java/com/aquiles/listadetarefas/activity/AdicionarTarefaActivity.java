@@ -1,8 +1,10 @@
-package com.aquiles.listadetarefas;
+package com.aquiles.listadetarefas.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.aquiles.listadetarefas.R;
 
 public class AdicionarTarefaActivity extends AppCompatActivity {
 
