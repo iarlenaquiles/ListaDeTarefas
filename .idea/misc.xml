@@ -3,10 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/activity_adicionar_tarefa.xml" value="0.24375" />
+        <entry key="app/src/main/res/layout/activity_adicionar_tarefa.xml" value="0.45" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.375" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.375" />
         <entry key="app/src/main/res/layout/lista_tarefa_adapter.xml" value="0.25" />
+        <entry key="app/src/main/res/menu/menu_adicionar_tarefa.xml" value="0.1234375" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.1234375" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.13958333333333334" />
       </map>

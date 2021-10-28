@@ -1,8 +1,10 @@
 package com.aquiles.listadetarefas.activity;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.aquiles.listadetarefas.DAO.TarefaDAO;
 import com.aquiles.listadetarefas.R;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.aquiles.listadetarefas.adapter.TarefaAdapter;
 import com.aquiles.listadetarefas.databinding.ActivityMainBinding;
+import com.aquiles.listadetarefas.helper.DbHelper;
 import com.aquiles.listadetarefas.helper.RecyclerItemClickListener;
 import com.aquiles.listadetarefas.model.Tarefa;
 
@@ -87,13 +90,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void carregarListaDeTarefas() {
         // listar tarefas
-        Tarefa t1 = new Tarefa();
-        t1.setNomeTarefa("trabalhar");
-        listaTarefas.add(t1);
-
-        Tarefa t2 = new Tarefa();
-        t2.setNomeTarefa("ir na budega");
-        listaTarefas.add(t2);
+        TarefaDAO tarefaDAO = new TarefaDAO(getApplicationContext());
+        listaTarefas = tarefaDAO.listar();
 
         // configurar adapter
         tarefaAdapter = new TarefaAdapter(listaTarefas);
