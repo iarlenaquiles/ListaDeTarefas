@@ -42,7 +42,19 @@ public class TarefaDAO implements ITarefaDAO {
 
     @Override
     public boolean atualizar(Tarefa tarefa) {
-        return false;
+        try {
+            ContentValues cv = new ContentValues();
+            cv.put("nome", tarefa.getNomeTarefa());
+
+            String[] args = {tarefa.getId().toString()};
+            escreve.update(DbHelper.TABELA_TAREFAS,cv,"id=?", args);
+            Log.i("INFO", "Tarefa atualizada com sucesso");
+
+        } catch (Exception e) {
+            Log.i("INFO", "erro ao atualizar a tarefa " + e.getMessage());
+            return false;
+        }
+        return true;
     }
 
     @Override
